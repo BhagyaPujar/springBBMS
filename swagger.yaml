@@ -1,0 +1,109 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: BLOOD BANK SYSTEM Rest Doc
+host: localhost:8080
+basePath: /springbbms
+tags:
+  - name: user
+      description: CRUD operations with user
+schemes:
+  - http
+paths:
+  /user/allusr:
+    get:
+    tags:
+    - user
+    summary: Finds all user
+    operationId: findAllUser
+    produces:
+    - application/json
+    responses:
+    '200':
+    description: OK
+    '204':
+    description: No Content
+  /user/createUser:
+    post:
+    tags:
+    - user
+    summary: Add a User
+    operationId: createUser
+    consumes:
+    - application/json
+    produces:
+    - application/json
+    parameters:
+    - in: body
+    name: body
+    description: user that needs to be added
+    required: true
+    schema:
+    type: string
+    responses:
+    '200':
+    description: OK
+    '204':
+    description: No Content
+  /user/deleteUser/{uid}:
+    delete:
+    tags:
+    - user
+    summary: Delete a user
+    operationId: deleteUser
+    produces:
+    - application/json
+    parameters:
+    - name: uid
+    in: path
+    description: ID of role to return
+    required: true
+    type: integer
+    format: int64
+    responses:
+    '200':
+    description: OK
+    '204':
+    description: No Content
+  /user/updateUser:
+    put:
+    tags:
+    - user
+    summary: Update a user
+    operationId: updateUser
+    consumes:
+    - application/json
+    produces:
+    - application/json
+    parameters:
+    - in: body
+    name: body
+    description: user that needs to be updated
+    required: true
+    schema:
+    type: string
+    responses:
+    '200':
+    description: OK
+    '204':
+    description: No Content
+  /user/getUser/{uid}:
+    get:
+    tags:
+    - user
+    summary: Find a user
+    operationId: searchUser
+    produces:
+    - application/json
+    parameters:
+    - name: uid
+    in: path
+    description: ID of role to return
+    required: true
+    type: integer
+    format: int64
+    responses:
+    '200':
+    description: OK
+    '204':
+    description: No Content
